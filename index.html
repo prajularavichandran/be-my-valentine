@@ -34,12 +34,16 @@ button {
 }
 
 #yesBtn {
+    position: relative;
+    z-index: 10;
     background-color: #ff6b81;
     color: white;
     border-radius: 25px;
 }
 
 #noBtn {
+    position: fixed;
+    z-index: 1;
     background-color: #555;
     color: white;
     position: absolute;
@@ -99,3 +103,4 @@ noBtn.addEventListener("touchstart", function(e) {
 
 </body>
 </html>
+
