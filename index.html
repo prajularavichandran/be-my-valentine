@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Will you be my valentine?</title>
+<title>Will you be my Valentine?</title>
 
 <style>
 body {
@@ -13,6 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
+    margin: 0;
 }
 
 .container {
@@ -20,42 +21,44 @@ body {
 }
 
 img {
-    width: 200px;
+    width: 220px;
     margin-bottom: 20px;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 5px;
-}
-
-#yesBtn {
-    position: relative;
-    z-index: 10;
-    background-color: #ff6b81;
-    color: white;
-    border-radius: 25px;
-}
-
-#noBtn {
-    position: fixed;
-    z-index: 1;
-    background-color: #555;
-    color: white;
-    position: absolute;
-    border-radius: 25px;
+h1 {
+    margin-bottom: 25px;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 30px;   /* controls space between buttons */
+    gap: 40px;
 }
 
+button {
+    padding: 12px 28px;
+    font-size: 16px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#yesBtn {
+    background-color: #ff6b81;
+    color: white;
+    position: relative;
+    z-index: 10;
+}
+
+#yesBtn:hover {
+    transform: scale(1.1);
+}
+
+#noBtn {
+    background-color: #555;
+    color: white;
+}
 </style>
 </head>
 
@@ -63,15 +66,17 @@ button {
 
 <div class="container">
     <img src="dudu-flower.gif" alt="">
-    <h1>My little sunshine, will you be my Valentine?</h1>
-<div class="buttons">
-    <button id="yesBtn">Yes</button>
-    <button id="noBtn">No</button>
-</div>
+    <h1>Cutie, will you be my Valentine? 🥺💖</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
 </div>
 
 <script>
 const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
 
 const messages = [
     "Are you sure? 😢",
@@ -83,7 +88,9 @@ const messages = [
 
 let count = 0;
 
-function moveButton() {
+function moveButton(e) {
+    if (e) e.preventDefault();
+
     const maxX = window.innerWidth - noBtn.offsetWidth;
     const maxY = window.innerHeight - noBtn.offsetHeight;
 
@@ -98,18 +105,18 @@ function moveButton() {
     count++;
 }
 
-// Desktop
-noBtn.addEventListener("mouseover", moveButton);
+// Desktop hover
+noBtn.addEventListener("mouseenter", moveButton);
 
-// Mobile
-noBtn.addEventListener("touchstart", function(e) {
-    e.preventDefault(); // prevents accidental click
-    moveButton();
+// Mobile tap
+noBtn.addEventListener("touchstart", moveButton);
+
+// Yes button redirect
+yesBtn.addEventListener("click", () => {
+    window.location.href = "yes.html";
 });
-
 </script>
 
 </body>
 </html>
-
 
