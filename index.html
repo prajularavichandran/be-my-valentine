@@ -49,6 +49,13 @@ button {
     position: absolute;
     border-radius: 25px;
 }
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;   /* controls space between buttons */
+}
+
 </style>
 </head>
 
@@ -57,9 +64,10 @@ button {
 <div class="container">
     <img src="dudu-flower.gif" alt="">
     <h1>My little sunshine, will you be my Valentine?</h1>
-
+<div class="buttons">
     <button id="yesBtn">Yes</button>
     <button id="noBtn">No</button>
+</div>
 </div>
 
 <script>
@@ -103,4 +111,5 @@ noBtn.addEventListener("touchstart", function(e) {
 
 </body>
 </html>
+
 
